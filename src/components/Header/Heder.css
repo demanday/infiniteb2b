@@ -1,0 +1,162 @@
+/* src/components/Navbar.css */
+
+/* General Styles */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo h1 {
+  color: blue; /* Green color for logo */
+  font-size: 1.8rem;
+}
+
+.search-box {
+  flex: 1;
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+  position: relative; /* Make it relative for positioning the button */
+}
+
+.search-box input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.search-box button {
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  position: absolute;
+  right: 10px; /* Keep it inside the input field */
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li {
+  margin-left: 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.signup-btn {
+  padding: 0.5rem 1rem;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+/* Side Navbar for Mobile/Tablet */
+.side-nav {
+  display: none;
+  position: fixed;
+  height: 100%;
+  width: 250px;
+  background-color: white;
+  top: 0;
+  right: 0;
+  padding: 2rem 1rem;
+  box-shadow: -5px 0 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.side-nav.open {
+  transform: translateX(0);
+   z-index: 2;
+}
+
+.side-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.side-logo {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.side-logo h1 {
+  color: blue; /* Same green color for consistency */
+  font-size: 1.8rem;
+}
+
+.side-nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side-nav ul li {
+  padding: 1rem 0;
+  font-size: 1.2rem;
+}
+
+.side-nav .signup-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Responsive Media Queries */
+
+/* Large Devices */
+@media (min-width: 1024px) {
+  .navbar {
+    padding: 1rem 5rem;
+  }
+}
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .search-box {
+    margin-right: 2rem;
+  }
+
+  .nav-links, logo {
+    display: none;
+  }
+
+  .hamburger,.side-nav {
+    display: block;
+  }
+
+ 
+}
+
+/* Mobile Phones */
+@media (max-width: 768px) {
+  .search-box,logo {
+    display: none;
+  }
+
+  .hamburger, .side-nav {
+    display: block;
+  }
+
+ 
+}
