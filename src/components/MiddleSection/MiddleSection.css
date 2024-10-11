@@ -1,4 +1,3 @@
-/* General Styles */
 .middle-section {
   position: relative;
   height: 80vh;
@@ -7,10 +6,40 @@
   justify-content: center;
   color: white;
   text-align: center;
+  overflow: hidden; /* Hide any overflow of video */
 }
 
+/* Background video styles */
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.background-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the video covers the entire section without distortion */
+}
+
+/* Background overlay to make the text more readable */
+.background-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+  z-index: 1; /* Positioned above the video */
+}
+
+/* Content on top of the video */
 .content {
-  z-index: 2;
+  z-index: 2; /* Content is placed above the video and overlay */
 }
 
 h1 {
@@ -37,7 +66,7 @@ button {
 }
 
 .btn-green {
-  background-color: blue;
+  background-color: #2D0099;
   color: white;
   border-radius: 5px;
 }
@@ -48,123 +77,6 @@ button {
   color: white;
   border-radius: 5px;
 }
-
-/* Background Overlay for image */
-.background-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background:black;
-  filter: brightness(0.5);
-  z-index: 1;
-}
-
-
-
-.solution-section {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Grid layout for images */
-.solution-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns layout */
-  grid-auto-rows: minmax(200px, auto); /* Auto adjust row height */
-  gap: 20px; /* Spacing between grid items */
-  max-width: 60%; /* 60% width for images */
-}
-
-.solution-card {
-  position: relative;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  overflow: hidden;
-  background-color: #fff;
-}
-
-.solution-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.solution-title {
-  position: absolute;
-  bottom: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  width: 90%;
-  text-align: center;
-  padding: 8px;
-  border-radius: 5px;
-  font-size: 1.1rem;
-  font-weight: bold;
-}
-
-/* Defining custom grid areas */
-.card-0 {
-  grid-column: span 2; /* Large marketing automation image */
-  grid-row: span 2;
-}
-
-.card-1 {
-  grid-column: span 1; /* Smaller Big Data image */
-  grid-row: span 1;
-}
-
-.card-2 {
-  grid-column: span 1; /* Smaller DevOps image */
-  grid-row: span 1;
-}
-
-.card-3 {
-  grid-column: span 1; /* Large Healthcare image */
-  grid-row: span 2;
-}
-
-.card-4 {
-  grid-column: span 2; /* Wide Cybersecurity image */
-  grid-row: span 1;
-}
-
-.card-5 {
-  grid-column: span 1; /* Normal size for Cloud platform */
-  grid-row: span 1;
-}
-
-/* Right side text content */
-.solution-content {
-  max-width: 35%; /* Text takes 35% width */
-}
-
-.section-heading {
-  font-size: 2.5rem;
-  color: blue;
-}
-
-.section-description {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  color: #333;
-}
-
-.explore-btn {
-  background-color: blue;
-  color: #fff;
-  padding: 15px 30px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
 
 /* Responsive Design */
 @media (max-width: 768px) {
@@ -180,22 +92,6 @@ button {
     font-size: 0.9rem;
     padding: 10px 20px;
   }
-   .solution-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns layout for tablets */
-    max-width: 100%;
-  }
-
-  .solution-content {
-    max-width: 100%;
-    text-align: center;
-  }
-
-  .card-0,
-  .card-3,
-  .card-4 {
-    grid-column: span 2;
-  }
-  
 }
 
 @media (max-width: 480px) {
@@ -210,27 +106,5 @@ button {
   button {
     font-size: 0.8rem;
     padding: 8px 16px;
-  }
-   .solution-grid {
-    grid-template-columns: 1fr; /* Single column for mobile */
-  }
-
-  .card-0,
-  .card-3,
-  .card-4 {
-    grid-column: span 1;
-  }
-
-  .section-heading {
-    font-size: 2rem;
-  }
-
-  .section-description {
-    font-size: 1rem;
-  }
-
-  .explore-btn {
-    font-size: 0.9rem;
-    padding: 10px 20px;
   }
 }

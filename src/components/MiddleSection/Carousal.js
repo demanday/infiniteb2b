@@ -9,28 +9,28 @@ const CarouselSection = () => {
       type: "EBOOK",
       description: "Proactive Security for your AWS environments.",
       author: "Trellix",
-      imageUrl: "/path/to/image1.jpg",
+      imageUrl: "../../Asset/dummy.png",
     },
     {
       title: "The State of Software Supply Chain Security",
       type: "CASE STUDY",
       description: "A detailed analysis on software supply chain security.",
       author: "Reversing Labs",
-      imageUrl: "/path/to/image2.jpg",
+      imageUrl: "../../Asset/dummy.png",
     },
     {
       title: "Navigating the New Threat Landscape",
       type: "GUIDE",
       description: "An essential guide to dealing with new threats.",
       author: "Darktrace",
-      imageUrl: "/path/to/image3.jpg",
+      imageUrl: "../../Asset/dummy.png",
     },
     {
       title: "Using AI in Medical Imaging to Improve Accuracy",
       type: "CASE STUDY",
       description: "How AI is revolutionizing medical imaging.",
       author: "Intel",
-      imageUrl: "/path/to/image4.jpg",
+      imageUrl: "../../Asset/dummy.png",
     },
   ];
 
@@ -66,7 +66,7 @@ const [cardsToShow, setCardsToShow] = useState(3);
 
   return (
     <section>
-      <h2 style={{textAlign: 'center'}}>B2B Solutions Across All Industries, Vendors, and Product Categories</h2>
+      <h2 style={{textAlign: 'center', fontSize:'35px', margin: '10px'}}>B2B SOLUTIONS ACROSS ALL INDUSTRIES, VENDORS AND PRODUCT CATEGORIES</h2>
       <Box display="flex" alignItems="center" justifyContent="center">
         {/* Previous Button */}
         <Button onClick={handlePrev} variant="contained" color="primary">

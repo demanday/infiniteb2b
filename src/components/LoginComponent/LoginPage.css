@@ -1,0 +1,157 @@
+/* Basic styling for the Sign-in form */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column; /* Ensure content stacks vertically */
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.signin-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.last-content {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #666;
+  width: 100%; /* Ensure it takes up the full width */
+}
+
+h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #666;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.options label {
+  font-size: 14px;
+}
+
+.options a {
+  font-size: 14px;
+  color: #0073b1;
+  text-decoration: none;
+}
+
+.signin-button {
+  background-color: #2D0099;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+.signin-button:hover {
+  background-color: #2D0099;
+}
+
+.divider {
+  margin: 20px 0;
+  font-size: 14px;
+  color: #999;
+}
+
+.linkedin-button {
+  background-color: #0073b1;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.linkedin-button img {
+  margin-right: 10px;
+}
+
+.create-account {
+  margin-top: 15px;
+}
+
+.create-account a {
+  color: #0073b1;
+  text-decoration: none;
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .signin-card {
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .signin-button,
+  .linkedin-button {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .last-content {
+    font-size: 10px;
+  }
+}
