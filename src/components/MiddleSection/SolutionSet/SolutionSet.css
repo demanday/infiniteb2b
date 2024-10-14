@@ -24,7 +24,7 @@
   grid-template-columns: 1fr 1fr; /* 2 equal columns for .img-item2 */
   gap: 20px;
   gap: 10px;
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .grid-item {
@@ -42,17 +42,17 @@
 }
 
 .img-item1 {
-  grid-column: span 2; /* This makes the image take up both columns (full width) */
+  grid-column: span 2; 
 }
 
 .caption {
   position: absolute;
   bottom: 10px;
   left: 10px;
-  background-color: rgba(0, 0, 0, 0.6);  /* Adjust opacity for readability */
+  background-color: rgba(0, 0, 0, 0.6);  
   color: #fff;
   padding: 5px 10px;
-  font-size: 14px;   /* Adjust font size */
+  font-size: 14px;   
   border-radius: 4px;
 }
 

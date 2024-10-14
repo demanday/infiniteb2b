@@ -1,8 +1,13 @@
-import React, { useState,useEffect } from 'react';
-import { Grid, Button, Box } from '@mui/material';
-import CarouselCard from '../common/CardComponent/Card';
+import React, { useState, useEffect } from 'react';
+import CarouselCard from '../common/CardComponent/Card'; 
+import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
+import './Carousal.css';
+import { useNavigate } from 'react-router-dom';
+
 
 const CarouselSection = () => {
+    const navigate = useNavigate(); 
+
   const cardData = [
     {
       title: "Proactive Security for your AWS Environments with Trellix",
@@ -35,9 +40,9 @@ const CarouselSection = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
- 
-const [cardsToShow, setCardsToShow] = useState(3);
+  const [cardsToShow, setCardsToShow] = useState(3);
 
+  // Update cards based on window width
   const updateCardsToShow = () => {
     const width = window.innerWidth;
     if (width <= 600) {
@@ -48,56 +53,77 @@ const [cardsToShow, setCardsToShow] = useState(3);
       setCardsToShow(3); // Desktop: 3 cards
     }
   };
- useEffect(() => {
+
+  useEffect(() => {
     updateCardsToShow();
     window.addEventListener('resize', updateCardsToShow);
     return () => window.removeEventListener('resize', updateCardsToShow);
   }, []);
 
+  // Next and Previous Handlers
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + cardsToShow) % cardData.length);
+    setCurrentIndex((prevIndex) => {
+      // Ensure we do not exceed the limit
+      const nextIndex = prevIndex + 1;
+      return nextIndex + cardsToShow > cardData.length ? 0 : nextIndex;
+    });
   };
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? cardData.length - cardsToShow : prevIndex - cardsToShow
-    );
+    setCurrentIndex((prevIndex) => {
+      // Ensure we do not go below 0
+      const nextIndex = prevIndex - 1;
+      return nextIndex < 0 ? cardData.length - cardsToShow : nextIndex;
+    });
+  };
+
+   const handleCaptionClick = (name) => {
+    const formattedName = name.replace(/\s+/g, '-');
+    const nameLowercase=formattedName.toLowerCase();
+    navigate(`/categories/${nameLowercase}`); 
   };
 
   return (
     <section>
-      <h2 style={{textAlign: 'center', fontSize:'35px', margin: '10px'}}>B2B SOLUTIONS ACROSS ALL INDUSTRIES, VENDORS AND PRODUCT CATEGORIES</h2>
-      <Box display="flex" alignItems="center" justifyContent="center">
+      <h2 style={{ textAlign: 'center', fontSize: '35px', margin: '10px' }}>
+        B2B SOLUTIONS ACROSS ALL INDUSTRIES, VENDORS AND PRODUCT CATEGORIES
+      </h2>
+      <div className="carousel-wrapper">
         {/* Previous Button */}
-        <Button onClick={handlePrev} variant="contained" color="primary">
-          Prev
-        </Button>
+        <span className="arrow-btn arrow-left" onClick={handlePrev}>
+          <IoIosArrowBack />
+        </span>
 
-        <Grid container spacing={2} justifyContent="center" alignItems="center">
-          {/* Carousel logic */}
-          {cardData.slice(currentIndex, currentIndex + 3).map((card, index) => (
-            <Grid item xs={12} sm={6} md={4} key={index}>
-              <CarouselCard
-                title={card.title}
-                type={card.type}
-                description={card.description}
-                author={card.author}
-                imageUrl={card.imageUrl}
-              />
-            </Grid>
-          ))}
-        </Grid>
+        {/* Flex container for cards */}
+        <div className="carousel-container">
+          <div
+            className="card-container"
+            style={{
+              transform: `translateX(-${(currentIndex * (100 / cardsToShow))}%)`,
+              transition: 'transform 0.5s ease', // Ensure smooth transition
+            }}
+          >
+            {cardData.map((card, index) => (
+              <div className="card-wrapper" key={index} onClick={()=>handleCaptionClick(card.title)}>
+                <CarouselCard
+                  title={card.title}
+                  type={card.type}
+                  description={card.description}
+                  author={card.author}
+                  imageUrl={card.imageUrl}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
 
         {/* Next Button */}
-        <Button onClick={handleNext} variant="contained" color="primary">
-          Next
-        </Button>
-      </Box>
+        <span className="arrow-btn arrow-right" onClick={handleNext}>
+          <IoIosArrowForward />
+        </span>
+      </div>
     </section>
   );
 };
 
 export default CarouselSection;
-
-
-

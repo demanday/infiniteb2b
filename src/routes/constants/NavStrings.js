@@ -1,10 +1,12 @@
 const NavString = {
   HOME: "/",
   LOGIN: "/login",
-LOGOUT: "/logout",
+  LOGOUT: "/logout",
   FOOTER: "/footer",
   NEWLETTER: "/newsletters",
- SOLUTIONSET:"/solutionset"
+  SOLUTIONSET: "/solutionset",
+  PUBLICSOLUTION: "/publicSolutionSet",
+  
 };
 
 export default NavString;

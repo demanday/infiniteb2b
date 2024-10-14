@@ -1,0 +1,66 @@
+/* CarouselSection.css */
+
+.carousel-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  max-width: 100%;
+  padding: 0 50px; /* Add padding to avoid arrows overlapping */
+}
+
+.carousel-container {
+  width: 100%; /* Ensure carousel container fills the available width */
+  overflow: hidden; /* Hide overflow when sliding */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.arrow-btn {
+  cursor: pointer;
+  font-size: 48px; /* Increase size */
+  color: blue; /* Color same as in the image */
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: color 0.3s ease-in-out;
+}
+
+.arrow-btn:hover {
+  color: blue; /* Darker color on hover */
+}
+
+.arrow-left {
+  left: 10px; /* Positioned to the left inside the container */
+}
+
+.arrow-right {
+  right: 10px; /* Positioned to the right inside the container */
+}
+
+.card-container {
+  display: flex;
+  gap: 20px; /* Space between cards */
+  justify-content: flex-start; /* Make cards start from left */
+  transition: transform 0.5s ease; /* Smooth transition */
+  width: calc(100% - 100px); /* Full width minus arrow width */
+}
+
+.card-wrapper {
+  flex: 0 0 calc(100% / 3); /* Show 3 cards, responsive */
+  padding: 10px;
+}
+
+@media (max-width: 900px) {
+  .card-wrapper {
+    flex: 0 0 calc(100% / 2); /* Show 2 cards on tablet */
+  }
+}
+
+@media (max-width: 600px) {
+  .card-wrapper {
+    flex: 0 0 100%; /* Show 1 card on mobile */
+  }
+}
